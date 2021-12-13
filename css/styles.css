@@ -1,0 +1,65 @@
+@import "./variables.css"; 
+body{
+    background-color: var(--white);
+    height: 100vh;
+}
+.welcome{
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    background-image: url(../image/agustin-gunawan-Z7srGedY5xk-unsplash.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 150px;
+}
+.welcome_title{
+    background: rgba(255, 255, 255, 0.80);
+    text-align: center;
+}
+.books{
+    max-width: 300px;
+    margin: 3% auto;
+}
+.card{
+    margin-bottom: 2%;
+    border: 2px solid var(--beige);
+}
+.card-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.fa-heart{
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 1.5em;
+    color: var(--beige);
+    z-index: 100;
+}
+.index{
+    color: rgba(0,0,0,.55);
+    position: inherit;
+    font-size: 1em;
+}
+.buttons{
+    cursor:pointer;
+}
+@media(min-width:769px){
+    .welcome{
+        background-repeat: repeat;
+        height: 400px;
+    }
+    .books{
+        display: flex;
+        max-width: 769px;
+    }
+    .card{
+        margin-right: 2%;
+    }
+}
+@media(min-width:1059px){
+    .books{
+        max-width: 1059px;
+    }
+}
