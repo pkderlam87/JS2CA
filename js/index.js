@@ -13,9 +13,8 @@ const favoritesArticles = getExistingFavorite();
         const response = await fetch(articlesUrl);
         const json = await response.json();
         articlesContainer.innerHTML = "";
-        let cssClass = "";
         json.forEach(function (articles) {
-            cssClass = "far";
+            let cssClass = "far";
             const doesObjectExist = favoritesArticles.find(function (favorites) {
                 return parseInt(favorites.id) === articles.id;
             });
@@ -23,12 +22,12 @@ const favoritesArticles = getExistingFavorite();
                 cssClass = "fa";
             }
             createHTML(cssClass, articles);
+            search(cssClass, json);
             const favorites = document.querySelectorAll(".buttons i");
             favorites.forEach((button) => {
                 button.addEventListener("click", handleClick);
             });
         });
-        search(json, cssClass);
     } catch (error) {
         console.log(error);
         displayMessage("error", "Something went wrong with the API call", ".message-container");

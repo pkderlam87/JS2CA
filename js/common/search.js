@@ -3,7 +3,7 @@ import { displayMessage } from "../utils/displayMessage.js";
 const articlesContainer = document.querySelector(".articles");
 const messageContainer = document.querySelector(".message-container");
 
-export function search(json, cssClass) {
+export function search(cssClass, json) {
 
     console.log(json);
     const searchContainer = document.querySelector("#searchInput");
