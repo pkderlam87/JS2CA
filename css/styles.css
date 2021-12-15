@@ -3,14 +3,17 @@ body{
     background-color: var(--white);
     height: 100vh;
 }
-/*.btn-outline-success{
+#clearLocalStorage{
+    max-width: 150px;
+    margin: 0 auto;
     color: var(--black);
-    border-color: var(--beige);
-}*/
-.btn-outline-success:hover{
+    border:2px solid var(--beige);
+}
+#clearLocalStorage:hover{
     font-weight: 700;
     background-color: var(--dark-beige);
     border-color: var(--brown);
+    color: var(--white);
 }
 .welcome{
     display: flex;
@@ -38,6 +41,11 @@ body{
 @keyframes loading{
     0% { transform: rotate(0deg);}
     100% { transform: rotate(360deg); }
+}
+.message-container{
+    display: flex;
+    justify-content: center;
+    margin-top: 1%;
 }
 .articles{
     max-width: 300px;
@@ -68,7 +76,8 @@ body{
 .buttons{
     cursor:pointer;
 }
-.noResults{
+.noResults,
+.results{
     border: 2px solid var(--dark-beige);
     max-width: 320px;
     margin: 10% auto;
@@ -86,7 +95,8 @@ body{
     .card{
         margin-right: 2%;
     }
-    .noResults{
+    .noResults,
+    .results{
         max-width: 500px;
         margin: 5% auto;
     }

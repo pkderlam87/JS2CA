@@ -21,8 +21,8 @@ const favoritesArticles = getExistingFavorite();
             if (doesObjectExist) {
                 cssClass = "fa";
             }
-            createHTML(cssClass, articles);
             search(cssClass, json);
+            createHTML(cssClass, articles);
             const favorites = document.querySelectorAll(".buttons i");
             favorites.forEach((button) => {
                 button.addEventListener("click", handleClick);

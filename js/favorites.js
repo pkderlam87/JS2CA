@@ -10,7 +10,7 @@ if (favorites.length === 0) {
     displayMessage("noResults", "Don't have favorite articles yet", ".message-container");
 }
 if (favorites.length > 0) {
-    clearButton.innerHTML = `<button id="clearLocalStorage">Clear all</button>`;
+    clearButton.innerHTML = `<button class="btn" id="clearLocalStorage">Clear all <i class="far fa-trash-alt"></i></button>`;
     const clearLocalStorage = document.querySelector("#clearLocalStorage");
     clearLocalStorage.addEventListener("click", clearAllFromLocalStorage);
 }
@@ -22,5 +22,5 @@ favorites.forEach((favorite) => {
 function clearAllFromLocalStorage() {
     localStorage.clear();
     articlesContainer.innerHTML = "";
-    displayMessage("noResults", "Don't have favorite articles yet", ".message-container");
+    displayMessage("noResults", "Don't have more favorite articles", ".message-container");
 }
