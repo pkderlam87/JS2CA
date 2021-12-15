@@ -28,7 +28,8 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/">Home <i class="fas fa-book"></i></a>
+                            <a class="nav-link active" aria-current="page" href="/">Home <i
+                                    class="fas fa-article"></i></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/favorite.html">My favorites <i
@@ -39,8 +40,8 @@
                         </li>
                     </ul>
                     <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
+                        <input class="form-control me-2" type="search" placeholder="Search by title" aria-label="Search"
+                            id="searchInput">
                     </form>
                 </div>
             </div>
@@ -48,11 +49,12 @@
     </header>
     <main>
         <section class="welcome">
-            <h1 class="welcome_title">Welcome to our library</h1>
+            <h1 class="welcome_title">Welcome to our articles library</h1>
         </section>
         <div class="message-container"></div>
-        <section class="books">
-        </section>
+        <div class="articles">
+            <div class="loading"></div>
+        </div>
     </main>
     <footer>
 
@@ -61,6 +63,7 @@
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
     <script src="./js/index.js" type="module"></script>
+    <script src="./js/common/search.js" type="module"></script>
 </body>
 
 </html>

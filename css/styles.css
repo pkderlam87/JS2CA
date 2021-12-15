@@ -3,6 +3,15 @@ body{
     background-color: var(--white);
     height: 100vh;
 }
+/*.btn-outline-success{
+    color: var(--black);
+    border-color: var(--beige);
+}*/
+.btn-outline-success:hover{
+    font-weight: 700;
+    background-color: var(--dark-beige);
+    border-color: var(--brown);
+}
 .welcome{
     display: flex;
     flex-direction: column;
@@ -16,7 +25,21 @@ body{
     background: rgba(255, 255, 255, 0.80);
     text-align: center;
 }
-.books{
+.loading{
+    border-top: 5px solid var(--black);
+    border-left: 5px solid var(--beige);
+    border-right: 5px solid var(--dark-beige);
+    border-bottom: 5px solid var(--brown);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    animation: loading 3s linear infinite;
+}
+@keyframes loading{
+    0% { transform: rotate(0deg);}
+    100% { transform: rotate(360deg); }
+}
+.articles{
     max-width: 300px;
     margin: 3% auto;
 }
@@ -45,21 +68,31 @@ body{
 .buttons{
     cursor:pointer;
 }
+.noResults{
+    border: 2px solid var(--dark-beige);
+    max-width: 320px;
+    margin: 10% auto;
+    text-align: center;
+}
 @media(min-width:769px){
     .welcome{
         background-repeat: repeat;
-        height: 400px;
+        height: 250px;
     }
-    .books{
+    .articles{
         display: flex;
         max-width: 769px;
     }
     .card{
         margin-right: 2%;
     }
+    .noResults{
+        max-width: 500px;
+        margin: 5% auto;
+    }
 }
 @media(min-width:1059px){
-    .books{
+    .articles{
         max-width: 1059px;
     }
 }
