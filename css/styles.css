@@ -111,11 +111,11 @@ footer h6{
     .noResults,
     .results{
         max-width: 500px;
-        margin: 5% auto;
+        margin: 2% auto;
     }
     footer{
         display:flex;
-    justify-content: space-around;
+        justify-content: space-around;
     }
 }
 @media(min-width:1059px){

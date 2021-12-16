@@ -10,7 +10,6 @@ const articlesUrl = url + "articles";
     try {
         const response = await fetch(articlesUrl);
         const json = await response.json();
-        //articlesContainer.innerHTML = "";
         const searchContainer = document.querySelector("#searchInput");
         searchContainer.onkeyup = function (event) {
             const searchValue = event.target.value.trim().toLowerCase();
@@ -28,7 +27,6 @@ const articlesUrl = url + "articles";
                 filteredArticles.forEach((filtered) => {
                     if (filteredArticles.length > 0) {
                         displayMessage("results", `We found ${filteredArticles.length} results`, ".message-container");
-                        console.log(filtered);
                         createCards(filtered);
                     } if (!searchValue) {
                         messageContainer.style.display = "none";

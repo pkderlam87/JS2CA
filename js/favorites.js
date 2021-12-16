@@ -1,7 +1,6 @@
 import { getExistingFavorite } from "../js/components/getExistFavorite.js";
 import { displayMessage } from "../js/utils/displayMessage.js";
 import { createHTML } from "./common/createHTML.js";
-//import { createHTML } from "../js/common/createHTML";
 const articlesContainer = document.querySelector(".articles");
 const clearButton = document.querySelector(".message-container");
 

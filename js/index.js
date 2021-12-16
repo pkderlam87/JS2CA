@@ -3,7 +3,6 @@ import { getExistingFavorite } from "../js/components/getExistFavorite.js";
 import { saveFavorites } from "./components/saveFavorites.js";
 import { displayMessage } from "./utils/displayMessage.js";
 import { createHTML } from "../js/common/createHTML.js";
-//import { search } from "./common/search.js";
 const articlesContainer = document.querySelector(".articles");
 const articlesUrl = url + "articles";
 const favoritesArticles = getExistingFavorite();
@@ -21,7 +20,6 @@ const favoritesArticles = getExistingFavorite();
 })();
 
 export function createCards(json) {
-    console.log(json);
     let typeOf = Array.isArray(json);
     if (typeOf) {
         for (let i = 0; i < json.length; i++) {
@@ -55,7 +53,6 @@ export function createCards(json) {
 }
 
 function handleClick(button) {
-    console.log(button);
     this.classList.toggle("fa");
     this.classList.toggle("far");
 
