@@ -1,6 +1,6 @@
 import { getExistingFavorite } from "../js/components/getExistFavorite.js";
 import { displayMessage } from "../js/utils/displayMessage.js";
-import { createHTML } from "./common/createHTML.js";
+import { createContentCard } from "./common/createContentCard.js";
 const articlesContainer = document.querySelector(".articles");
 const clearButton = document.querySelector(".message-container");
 
@@ -16,7 +16,7 @@ if (favorites.length > 0) {
 }
 articlesContainer.innerHTML = "";
 favorites.forEach((favorite) => {
-    createHTML("fas", favorite);
+    createContentCard("fas", favorite);
 });
 
 function clearAllFromLocalStorage() {

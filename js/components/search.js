@@ -1,6 +1,6 @@
 import { createCards } from "../index.js";
 import { displayMessage } from "../utils/displayMessage.js";
-import { url } from "../components/api.js";
+import { url } from "./api.js";
 const articlesContainer = document.querySelector(".articles");
 const messageContainer = document.querySelector(".message-container");
 const articlesUrl = url + "articles";

@@ -2,7 +2,7 @@ import { url } from "./components/api.js";
 import { getExistingFavorite } from "../js/components/getExistFavorite.js";
 import { saveFavorites } from "./components/saveFavorites.js";
 import { displayMessage } from "./utils/displayMessage.js";
-import { createHTML } from "../js/common/createHTML.js";
+import { createContentCard } from "../js/common/createContentCard.js";
 const articlesContainer = document.querySelector(".articles");
 const articlesUrl = url + "articles";
 const favoritesArticles = getExistingFavorite();
@@ -30,7 +30,7 @@ export function createCards(json) {
             if (doesObjectExist) {
                 cssClass = "fa";
             }
-            createHTML(cssClass, json[i]);
+            createContentCard(cssClass, json[i]);
             const favorites = document.querySelectorAll(".buttons i");
             favorites.forEach((button) => {
                 button.addEventListener("click", handleClick);
@@ -44,7 +44,7 @@ export function createCards(json) {
         if (doesObjectExist) {
             cssClass = "fa";
         }
-        createHTML(cssClass, json);
+        createContentCard(cssClass, json);
         const favorites = document.querySelectorAll(".buttons i");
         favorites.forEach((button) => {
             button.addEventListener("click", handleClick);
