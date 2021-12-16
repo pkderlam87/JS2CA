@@ -22,36 +22,36 @@ const favoritesArticles = getExistingFavorite();
 
 export function createCards(json) {
     console.log(json);
-    for (let i = 0; i < json.length; i++) {
+    let typeOf = Array.isArray(json);
+    if (typeOf) {
+        for (let i = 0; i < json.length; i++) {
+            let cssClass = "far";
+            const doesObjectExist = favoritesArticles.find(function (favorites) {
+                return parseInt(favorites.id) === json[i].id;
+            });
+            if (doesObjectExist) {
+                cssClass = "fa";
+            }
+            createHTML(cssClass, json[i]);
+            const favorites = document.querySelectorAll(".buttons i");
+            favorites.forEach((button) => {
+                button.addEventListener("click", handleClick);
+            });
+        }
+    } else {
         let cssClass = "far";
         const doesObjectExist = favoritesArticles.find(function (favorites) {
-            return parseInt(favorites.id) === json[i].id;
+            return parseInt(favorites.id) === json.id;
         });
         if (doesObjectExist) {
             cssClass = "fa";
         }
-        //search(cssClass, json);
-        createHTML(cssClass, json[i]);
+        createHTML(cssClass, json);
         const favorites = document.querySelectorAll(".buttons i");
         favorites.forEach((button) => {
             button.addEventListener("click", handleClick);
         });
     }
-    /*json.forEach(function (articles) {
-        let cssClass = "far";
-        const doesObjectExist = favoritesArticles.find(function (favorites) {
-            return parseInt(favorites.id) === articles.id;
-        });
-        if (doesObjectExist) {
-            cssClass = "fa";
-        }
-        //search(cssClass, json);
-        createHTML(cssClass, articles);
-        const favorites = document.querySelectorAll(".buttons i");
-        favorites.forEach((button) => {
-            button.addEventListener("click", handleClick);
-        });
-    });*/
 }
 
 function handleClick(button) {
