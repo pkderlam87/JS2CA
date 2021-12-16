@@ -3,36 +3,57 @@ import { getExistingFavorite } from "../js/components/getExistFavorite.js";
 import { saveFavorites } from "./components/saveFavorites.js";
 import { displayMessage } from "./utils/displayMessage.js";
 import { createHTML } from "../js/common/createHTML.js";
-import { search } from "./common/search.js";
+//import { search } from "./common/search.js";
 const articlesContainer = document.querySelector(".articles");
 const articlesUrl = url + "articles";
 const favoritesArticles = getExistingFavorite();
 
-(async function creatingHTML() {
+(async function callAPI() {
     try {
         const response = await fetch(articlesUrl);
         const json = await response.json();
         articlesContainer.innerHTML = "";
-        json.forEach(function (articles) {
-            let cssClass = "far";
-            const doesObjectExist = favoritesArticles.find(function (favorites) {
-                return parseInt(favorites.id) === articles.id;
-            });
-            if (doesObjectExist) {
-                cssClass = "fa";
-            }
-            search(cssClass, json);
-            createHTML(cssClass, articles);
-            const favorites = document.querySelectorAll(".buttons i");
-            favorites.forEach((button) => {
-                button.addEventListener("click", handleClick);
-            });
-        });
+        createCards(json);
     } catch (error) {
         console.log(error);
         displayMessage("error", "Something went wrong with the API call", ".message-container");
     }
 })();
+
+export function createCards(json) {
+    console.log(json);
+    for (let i = 0; i < json.length; i++) {
+        let cssClass = "far";
+        const doesObjectExist = favoritesArticles.find(function (favorites) {
+            return parseInt(favorites.id) === json[i].id;
+        });
+        if (doesObjectExist) {
+            cssClass = "fa";
+        }
+        //search(cssClass, json);
+        createHTML(cssClass, json[i]);
+        const favorites = document.querySelectorAll(".buttons i");
+        favorites.forEach((button) => {
+            button.addEventListener("click", handleClick);
+        });
+    }
+    /*json.forEach(function (articles) {
+        let cssClass = "far";
+        const doesObjectExist = favoritesArticles.find(function (favorites) {
+            return parseInt(favorites.id) === articles.id;
+        });
+        if (doesObjectExist) {
+            cssClass = "fa";
+        }
+        //search(cssClass, json);
+        createHTML(cssClass, articles);
+        const favorites = document.querySelectorAll(".buttons i");
+        favorites.forEach((button) => {
+            button.addEventListener("click", handleClick);
+        });
+    });*/
+}
+
 function handleClick(button) {
     console.log(button);
     this.classList.toggle("fa");
