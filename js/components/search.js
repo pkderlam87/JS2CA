@@ -27,7 +27,8 @@ const articlesUrl = url + "articles";
                 filteredArticles.forEach((filtered) => {
                     if (filteredArticles.length > 0) {
                         displayMessage("results", `We found ${filteredArticles.length} results`, ".message-container");
-                        createCards(filtered);
+                        articlesContainer.innerHTML = "";
+                        createCards(filteredArticles);
                     } if (!searchValue) {
                         messageContainer.style.display = "none";
                         articlesContainer.innerHTML = "";

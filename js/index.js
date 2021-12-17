@@ -20,36 +20,20 @@ const favoritesArticles = getExistingFavorite();
 })();
 
 export function createCards(json) {
-    let typeOf = Array.isArray(json);
-    if (typeOf) {
-        for (let i = 0; i < json.length; i++) {
-            let cssClass = "far";
-            const doesObjectExist = favoritesArticles.find(function (favorites) {
-                return parseInt(favorites.id) === json[i].id;
-            });
-            if (doesObjectExist) {
-                cssClass = "fa";
-            }
-            createContentCard(cssClass, json[i]);
-            const favorites = document.querySelectorAll(".buttons i");
-            favorites.forEach((button) => {
-                button.addEventListener("click", handleClick);
-            });
-        }
-    } else {
+    json.forEach(function (item) {
         let cssClass = "far";
         const doesObjectExist = favoritesArticles.find(function (favorites) {
-            return parseInt(favorites.id) === json.id;
+            return parseInt(favorites.id) === item.id;
         });
         if (doesObjectExist) {
             cssClass = "fa";
         }
-        createContentCard(cssClass, json);
+        createContentCard(cssClass, item);
         const favorites = document.querySelectorAll(".buttons i");
         favorites.forEach((button) => {
             button.addEventListener("click", handleClick);
         });
-    }
+    })
 }
 
 function handleClick(button) {
